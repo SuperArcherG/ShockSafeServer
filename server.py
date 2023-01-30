@@ -20,8 +20,6 @@ app = Flask(__name__)
 def root():
     if request.method == 'POST':
         url = 'http://192.168.0.126:1567/'
-
-        print(x.text)
         pw = request.form.get('pw')
         op = request.form.get('Locked')
 
