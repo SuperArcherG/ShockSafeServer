@@ -18,6 +18,8 @@ app = Flask(__name__)
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
+GPIO.setup(13, GPIO.OUT)
+GPIO.output(13, 0)
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -30,7 +32,9 @@ def OpenClose():
         if op == '1':
             print("open")
             pwm.ChangeDutyCycle(7)  # neutral position
+            GPIO.output(13, 1)
             sleep(0.2)
+            GPIO.output(13, 0)
         else:
             print("closed")
             pwm.ChangeDutyCycle(2.4)  # left -90 deg position
