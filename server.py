@@ -41,7 +41,7 @@ def OpenClose():
             print("Wrong Password")
             return ("Wrong Password")
 
-    return open("index.html")
+    return open("shock.html")
 
 
 @app.route("/ForceOpen", methods=['GET', 'POST'])
@@ -53,7 +53,7 @@ def ForceOpen():
         x = requests.post(url, json=myobj)
         return ("Opened")
 
-    return open("index.html")
+    return open("shock.html")
 
 
 # @app.route("/assets")
