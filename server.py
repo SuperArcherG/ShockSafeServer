@@ -19,7 +19,7 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def root():
     if request.method == 'POST':
-        url = '192.168.0.126:1567'
+        url = 'http://192.168.0.126:1567/'
         myobj = {'pw': '1234'}
 
         x = requests.post(url, json=myobj)
