@@ -16,8 +16,8 @@ DevIP = '192.168.0.123'
 app = Flask(__name__)
 
 
-@app.route("/", methods=['GET', 'POST'])
-def root():
+@app.route("/shock", methods=['GET', 'POST'])
+def OpenClose():
     if request.method == 'POST':
         url = 'http://192.168.0.126:1567/'
         pw = request.form.get('pw')
@@ -40,6 +40,18 @@ def root():
         else:
             print("Wrong Password")
             return ("Wrong Password")
+
+    return open("index.html")
+
+
+@app.route("/ForceOpen", methods=['GET', 'POST'])
+def ForceOpen():
+    if request.method == 'POST':
+        url = 'http://192.168.0.126:1567/'
+        print("Opened")
+        myobj = {'open': '1'}
+        x = requests.post(url, json=myobj)
+        return ("Opened")
 
     return open("index.html")
 

@@ -21,7 +21,7 @@ GPIO.setup(11, GPIO.OUT)
 
 
 @app.route("/", methods=['GET', 'POST'])
-def root():
+def OpenClose():
     if request.method == 'POST':
         pwm = GPIO.PWM(11, 50)
         pwm.start(0)
