@@ -18,21 +18,8 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def root():
     if request.method == 'POST':
-        pw = request.form.get('pw')
-        op = request.form.get('Locked')
-
-        ValidLogin = open(os.path.join("Password.txt")).read() == pw
-        if ValidLogin:
-            print("Correct Password")
-            if op:
-                print("Closed")
-            else:
-                print("Opened")
-        else:
-            print("Wrong Password")
-
-    return open("index.html")
-
+        op = request.form.get('open')
+        print(op)
 
 # @app.route("/assets")
 # def assets():

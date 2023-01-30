@@ -20,9 +20,6 @@ app = Flask(__name__)
 def root():
     if request.method == 'POST':
         url = 'http://192.168.0.126:1567/'
-        myobj = {'pw': '1234'}
-
-        x = requests.post(url, json=myobj)
 
         print(x.text)
         pw = request.form.get('pw')
@@ -33,9 +30,13 @@ def root():
             print("Correct Password")
             if op:
                 print("Closed")
+                myobj = {'open': '0'}
+                x = requests.post(url, json=myobj)
                 return ("Closed")
             else:
                 print("Opened")
+                myobj = {'open': '1'}
+                x = requests.post(url, json=myobj)
                 return ("Opened")
         else:
             print("Wrong Password")
