@@ -33,7 +33,7 @@ def OpenClose():
             sleep(0.2)
         else:
             print("closed")
-            pwm.ChangeDutyCycle(2.25)  # left -90 deg position
+            pwm.ChangeDutyCycle(2.4)  # left -90 deg position
             sleep(0.2)
         pwm.stop()
     return ""
