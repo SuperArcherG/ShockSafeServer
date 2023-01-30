@@ -46,9 +46,9 @@ def OpenClose():
             i = 20
             while i > 0:
                 GPIO.output(13, 1)
-                sleep(0.01)
+                sleep(0.05)
                 GPIO.output(13, 0)
-                sleep(0.01)
+                sleep(0.05)
                 i -= 1
         pwm.stop()
     return ""
