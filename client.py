@@ -36,8 +36,9 @@ def root():
             pwm.ChangeDutyCycle(2.5)  # left -90 deg position
             sleep(0.2)
         pwm.stop()
-        GPIO.cleanup()
     return ""
+
+# GPIO.cleanup()
 
 # @app.route("/assets")
 # def assets():
