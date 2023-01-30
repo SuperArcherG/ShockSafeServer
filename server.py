@@ -16,7 +16,7 @@ DevIP = '192.168.0.123'
 app = Flask(__name__)
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/shock", methods=['GET', 'POST'])
 def root():
     if request.method == 'POST':
         url = 'http://192.168.0.126:1567/'
@@ -41,7 +41,7 @@ def root():
             print("Wrong Password")
             return ("Wrong Password")
 
-    return open("index.html")
+    return open("shock.html")
 
 
 # @app.route("/assets")
