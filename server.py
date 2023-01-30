@@ -5,8 +5,9 @@ from waitress import serve
 from werkzeug.utils import secure_filename
 from flask import Flask, flash, json, send_file, request, redirect, url_for
 from contextlib import nullcontext
+import requests
 
-Prod = True
+Prod = False
 Port = 80
 DevPort = 1235
 Ip = '192.168.0.123'
@@ -18,6 +19,12 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def root():
     if request.method == 'POST':
+        url = '192.168.0.126:1567'
+        myobj = {'pw': '1234'}
+
+        x = requests.post(url, json=myobj)
+
+        print(x.text)
         pw = request.form.get('pw')
         op = request.form.get('Locked')
 
