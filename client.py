@@ -18,8 +18,12 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def root():
     if request.method == 'POST':
-        op = (str)(request.get_json()).split('{')[1].split('}')[0].split('\'')[3]
-        print(op)
+        op = (str)(request.get_json()).split(
+            '{')[1].split('}')[0].split('\'')[3]
+        if op == '1':
+            print("open")
+        else:
+            print("closed")
     return ""
 
 # @app.route("/assets")
