@@ -23,7 +23,8 @@ def root():
         pw = request.form.get('pw')
         op = request.form.get('Locked')
 
-        ValidLogin = open(os.path.join("Password.txt")).readline(0) == pw
+        ValidLogin = open(os.path.join("Password.txt")
+                          ).read().split('\n')[0] == pw
         if ValidLogin:
             print("Correct Password")
             if op:
