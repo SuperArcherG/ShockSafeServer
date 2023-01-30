@@ -9,8 +9,8 @@ from contextlib import nullcontext
 Prod = True
 Port = 80
 DevPort = 1235
-Ip = '192.168.0.124'
-DevIP = '192.168.0.124'
+Ip = '192.168.0.123'
+DevIP = '192.168.0.123'
 
 app = Flask(__name__)
 
