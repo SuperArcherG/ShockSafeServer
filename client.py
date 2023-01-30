@@ -5,6 +5,8 @@ from waitress import serve
 from werkzeug.utils import secure_filename
 from flask import Flask, flash, json, send_file, request, redirect, url_for
 from contextlib import nullcontext
+import RPi.GPIO as GPIO
+from time import sleep
 
 Prod = False
 Port = 1567
@@ -13,6 +15,11 @@ Ip = '192.168.0.126'
 DevIP = '192.168.0.126'
 
 app = Flask(__name__)
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(4, GPIO.OUT)
+pwm = GPIO.PWM(4, 50)
+pwm.start(0)
 
 
 @app.route("/", methods=['GET', 'POST'])
