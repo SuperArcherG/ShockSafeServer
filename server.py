@@ -20,11 +20,12 @@ app = Flask(__name__)
 def OpenClose():
     if request.method == 'POST':
         url = 'http://192.168.0.126:1567/'
-        pw = request.form.get('pw')
+        # pw = request.form.get('pw')
         op = request.form.get('Locked')
 
-        ValidLogin = open(os.path.join("Password.txt")
-                          ).read().split('\n')[0] == pw
+        # ValidLogin = open(os.path.join("Password.txt")
+        #                   ).read().split('\n')[0] == pw
+        ValidLogin = True
         if ValidLogin:
             print("Correct Password")
             if op:
