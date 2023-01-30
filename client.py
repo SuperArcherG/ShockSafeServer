@@ -29,11 +29,11 @@ def root():
             '{')[1].split('}')[0].split('\'')[3]
         if op == '1':
             print("open")
-            pwm.ChangeDutyCycle(7.5)  # neutral position
+            pwm.ChangeDutyCycle(7)  # neutral position
             sleep(0.2)
         else:
             print("closed")
-            pwm.ChangeDutyCycle(2.5)  # left -90 deg position
+            pwm.ChangeDutyCycle(2.25)  # left -90 deg position
             sleep(0.2)
         pwm.stop()
     return ""
