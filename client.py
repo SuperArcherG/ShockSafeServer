@@ -18,7 +18,7 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def root():
     if request.method == 'POST':
-        op = request.get_json().split('{')[1].split('}')[0]
+        op = (str)(request.get_json()).split('{')[1].split('}')[0]
         print(op)
     return ""
 
