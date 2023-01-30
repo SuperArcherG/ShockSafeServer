@@ -31,12 +31,12 @@ def OpenClose():
                 print("Closed")
                 myobj = {'open': '0'}
                 x = requests.post(url, json=myobj)
-                return ("Closed")
+                # return ("Closed")
             else:
                 print("Opened")
                 myobj = {'open': '1'}
                 x = requests.post(url, json=myobj)
-                return ("Opened")
+                # return ("Opened")
         else:
             print("Wrong Password")
             return ("Wrong Password")
@@ -46,14 +46,11 @@ def OpenClose():
 
 @app.route("/ForceOpen", methods=['GET', 'POST'])
 def ForceOpen():
-    if request.method == 'POST':
-        url = 'http://192.168.0.126:1567/'
-        print("Opened")
-        myobj = {'open': '1'}
-        x = requests.post(url, json=myobj)
-        return ("Opened")
-
-    return open("shock.html")
+    url = 'http://192.168.0.126:1567/'
+    print("Opened")
+    myobj = {'open': '1'}
+    x = requests.post(url, json=myobj)
+    return ("Opened")
 
 
 # @app.route("/assets")
