@@ -18,26 +18,23 @@ app = Flask(__name__)
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
-pwm = GPIO.PWM(11, 50)
-pwm.start(0)
 
-pwm.ChangeDutyCycle(2.5) # left -90 deg position
-sleep(1)
-pwm.ChangeDutyCycle(7.5) # neutral position
-sleep(1)
-
-pwm.stop()
-GPIO.cleanup()
 
 @app.route("/", methods=['GET', 'POST'])
 def root():
     if request.method == 'POST':
+        pwm = GPIO.PWM(11, 50)
+        pwm.start(0)
         op = (str)(request.get_json()).split(
             '{')[1].split('}')[0].split('\'')[3]
         if op == '1':
             print("open")
+            pwm.ChangeDutyCycle(7.5)  # neutral position
         else:
             print("closed")
+            pwm.ChangeDutyCycle(2.5)  # left -90 deg position
+        pwm.stop()
+        GPIO.cleanup()
     return ""
 
 # @app.route("/assets")
