@@ -9,7 +9,7 @@ import requests
 
 Prod = False
 Port = 80
-DevPort = 1235
+DevPort = 80
 Ip = '192.168.0.123'
 DevIP = '192.168.0.123'
 
