@@ -33,7 +33,11 @@ def OpenClose():
             print("open")
             pwm.ChangeDutyCycle(7)  # neutral position
             GPIO.output(13, 1)
-            sleep(0.2)
+            sleep(0.1)
+            GPIO.output(13, 0)
+            sleep(0.1)
+            GPIO.output(13, 1)
+            sleep(0.1)
             GPIO.output(13, 0)
         else:
             print("closed")
