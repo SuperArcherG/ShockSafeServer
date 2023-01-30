@@ -18,8 +18,9 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def root():
     if request.method == 'POST':
-        op = request.form.get('open')
+        op = request.get_data('open')
         print(op)
+    return
 
 # @app.route("/assets")
 # def assets():
