@@ -43,6 +43,13 @@ def OpenClose():
             print("closed")
             pwm.ChangeDutyCycle(2.4)  # left -90 deg position
             sleep(0.2)
+            i = 100
+            while i > 0:
+                GPIO.output(13, 1)
+                sleep(0.05)
+                GPIO.output(13, 0)
+                sleep(0.05)
+                i -= 1
         pwm.stop()
     return ""
 
