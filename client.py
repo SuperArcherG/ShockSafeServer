@@ -20,7 +20,7 @@ def root():
     if request.method == 'POST':
         op = request.get_data('open')
         print(op)
-    return
+    return ""
 
 # @app.route("/assets")
 # def assets():
